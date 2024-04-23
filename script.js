@@ -1,4 +1,16 @@
-function convertToRoman(num){
+const number = document.getElementById("number");
+const input = number.value;
+const convertBtn = document.getElementById("convert-btn");
+const output = document.getElementById("output");
+
+convertBtn.addEventListener("click", () => {
+  const inputValue = parseInt(number.value);
+  const romanNumeral = convertToRoman(inputValue);
+  output.innerText = romanNumeral;
+});
+
+
+function convertToRoman(input){
     let romanNumeral = "";
     const romanList = [
       ["M", 1000],
@@ -15,26 +27,21 @@ function convertToRoman(num){
       ["IV", 4],
       ["I", 1]
     ]
-    
-    for (let i = 0; i < romanList.length; i++){
-      if (num > 3999){
-        console.log("Enter a number equal or less than 3999");
-        return;
+
+      if (input > 3999){
+        return "Enter a number equal or less than 3999";
       }
-      else if (num <= -1){
-        console.log("Please enter a number greater than or equal to 1");
-        return;
+      else if (input <= 0){
+        return "Please enter a number greater than or equal to 1";
       }
-      else if (!num){
-        console.log("Please enter a valid number");
-        return;
+      else if (!input){
+        return "Please enter a valid number";
       }
-      while(num >= romanList[i][1]){
+      for (let i = 0; i < romanList.length; i++){
+      while(input >= romanList[i][1]){
       romanNumeral += romanList[i][0];
-      num -= romanList[i][1];
+      input -= romanList[i][1];
       }
-    }  
+    }
     return romanNumeral;
   }
-  convertToRoman(0);
-  
