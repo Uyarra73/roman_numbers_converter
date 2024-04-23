@@ -20,7 +20,7 @@
     font-size: 16px;
     line-height: 1.5;
     color: var(--light-grey);
-    background-image: url("panteon.jpg");
+    background-image: url("assets/panteon.jpg");
     background-color: var(--dark-grey);
     background-repeat: no-repeat;
     background-size: cover;
